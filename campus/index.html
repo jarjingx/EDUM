@@ -86,8 +86,8 @@
     <img class="map_pic trigger" src="image/middle_pg7.png" style="position: absolute; left: 6550px; top: 670px">
     <img class="map_pic trigger" src="image/middle_pg8.png" style="position: absolute; left: 6550px; top: 900px">
 
-    <img class="card trigger" src="image/card_bg.png" style="position: absolute; left: 9054px; top: 254px">
-    <img class="card trigger" src="image/card_bg.png" style="position: absolute; left: 9666px; top: 254px">
+    <img class="card" src="image/card_bg.png" style="position: absolute; left: 9054px; top: 254px">
+    <img class="card" src="image/card_bg.png" style="position: absolute; left: 9666px; top: 254px">
 
     <img class="scan" src="image/card_scan.png" style="position:absolute;left:9054px;top:254px;clip:rect(0px, 502px,300px,0px)">
     <img class="scan" src="image/card_scan.png" style="position:absolute;left:9666px;top:254px;clip:rect(0px, 502px,300px,0px)">
@@ -97,20 +97,18 @@
         <div class="scan" style="left: 612px;"></div>
     </div>
 
-    <img class="card trigger" src="image/card_form_girl.png" style="position: absolute; left: 9054px; top: 254px">
-    <img class="card trigger" src="image/card_form_boy.png" style="position: absolute; left: 9666px; top: 254px">
+    <img class="card" src="image/card_form_girl.png" style="position: absolute; left: 9054px; top: 254px">
+    <img class="card" src="image/card_form_boy.png" style="position: absolute; left: 9666px; top: 254px">
 
     <svg width="11024" height="1200" style="position:absolute;top:0px;left:0px">
         <g class="result">
-            <text x="9260" y="325" font-family="GothamBook" font-size="22px" text-anchor="start" fill="#ffffff">This year GPA Prediction</text>
-            <text x="9260" y="390" font-family="GothamBold" font-size="64px" text-anchor="start" fill="#ffffff">3.75</text>
-            <text x="9872" y="325" font-family="GothamBook" font-size="22px" text-anchor="start" fill="#ffffff">This year GPA Prediction</text>
-            <text x="9872" y="390" font-family="GothamBold" font-size="64px" text-anchor="start" fill="#ffffff">2.75</text>
+            <text x="9260" y="350" font-family="GothamBook" font-size="26px" text-anchor="start" fill="#ffffff">self-disciplined</text>
+            <text x="9872" y="350" font-family="GothamBook" font-size="26px" text-anchor="start" fill="#ffffff">non-self-disciplined</text>
             <image xlink:href="icon/lighthouse_campus_right_card_tag_green.png" width="90" height="90" x="9054" y="254"></image>
             <image xlink:href="icon/lighthouse_campus_right_card_tag_red.png" width="90" height="90" x="9666" y="254"></image>
         </g>
         
-        <g class="card_info trigger" >
+        <g class="card_info">
             <text x="9179" y="526" font-family="GothamBold" font-size="64px" text-anchor="middle" fill="#ff5000">21%</text>
             <text x="9179" y="552" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">truancy rate</text>
             <text x="9430" y="526" font-family="GothamBold" font-size="64px" text-anchor="middle" fill="#ffe400">10%</text>
@@ -126,7 +124,7 @@
             <text x="9179" y="789" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">female</text>
             <text x="9430" y="789" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">sophomore</text>
             <text x="9179" y="875" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">business</text>
-            <text x="9430" y="875" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">last year GPA 3.5</text>
+            <text x="9430" y="875" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">GPA 3.5</text>
 
             <text x="9791" y="526" font-family="GothamBold" font-size="64px" text-anchor="middle" fill="#ff5000">63%</text>
             <text x="9791" y="552" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">truancy rate</text>
@@ -143,7 +141,7 @@
             <text x="9791" y="789" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">male</text>
             <text x="10042" y="789" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">sophomore</text>
             <text x="9791" y="875" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">business</text>
-            <text x="10042" y="875" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">last year GPA 2.5</text>
+            <text x="10042" y="875" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">GPA 2.5</text>
         </g>
     </svg>
 
@@ -175,25 +173,25 @@
         <div class="load trigger"></div>
         <div class="load trigger" style="animation-delay:40s"></div>
     </div>
-
-    <iframe id="chart_A" src="https://app.powerbi.cn/view?r=eyJrIjoiOTc5ZGNhYTUtNWVjNy00OTg2LTgzZGItNmJkNTFmYmMxMTUzIiwidCI6IjUzMTM5OGYzLTA5ZDAtNDNmNS1iNGFiLTg5NGU4MmQ2MTA0NiJ9" width="1510" height="1000" frameborder="0" scrolling="no" seamless="seamless" style="position:absolute;top:134px;left:7176px"></iframe>
-    <iframe id="chart_B" src="https://app.powerbi.cn/view?r=eyJrIjoiMTdhZGMzN2QtYzU2Ni00NzMxLTljMjItZWQ5YTZiNWFmMzQxIiwidCI6IjUzMTM5OGYzLTA5ZDAtNDNmNS1iNGFiLTg5NGU4MmQ2MTA0NiJ9" width="1510" height="1000" frameborder="0" scrolling="no" seamless="seamless" style="position:absolute;top:134px;left:7176px"></iframe>
+    
+    <iframe id="chart_A" src="https://app.powerbi.cn/view?r=eyJrIjoiMTdhZGMzN2QtYzU2Ni00NzMxLTljMjItZWQ5YTZiNWFmMzQxIiwidCI6IjUzMTM5OGYzLTA5ZDAtNDNmNS1iNGFiLTg5NGU4MmQ2MTA0NiJ9" width="1510" height="1000" frameborder="0" scrolling="no" seamless="seamless" style="position:absolute;top:134px;left:7176px"></iframe>
+    <iframe id="chart_B" src="https://app.powerbi.cn/view?r=eyJrIjoiOTc5ZGNhYTUtNWVjNy00OTg2LTgzZGItNmJkNTFmYmMxMTUzIiwidCI6IjUzMTM5OGYzLTA5ZDAtNDNmNS1iNGFiLTg5NGU4MmQ2MTA0NiJ9" width="1510" height="1000" frameborder="0" scrolling="no" seamless="seamless" style="position:absolute;top:134px;left:7176px"></iframe>
     <div id="chart_A_mask">
         <div style="position: absolute; width: 1510px; height: 30px; left: 7176px; top: 170px; background-color: #010e2a"></div>
-        <div style="position: absolute; width: 1510px; height: 30px; left: 7176px; top: 265px; background-color: #010e2a"></div>
-        <div style="position: absolute; width: 1510px; height: 30px; left: 7176px; top: 720px; background-color: #010e2a"></div>
         <div style="position: absolute; width: 1510px; height: 50px; left: 7176px; top: 1090px; background-color: #010e2a"></div>
     </div>
 
     <div id="chart_B_mask">
         <div style="position: absolute; width: 1510px; height: 30px; left: 7176px; top: 170px; background-color: #010e2a"></div>
+        <div style="position: absolute; width: 1510px; height: 30px; left: 7176px; top: 265px; background-color: #010e2a"></div>
+        <div style="position: absolute; width: 1510px; height: 30px; left: 7176px; top: 720px; background-color: #010e2a"></div>
         <div style="position: absolute; width: 1510px; height: 50px; left: 7176px; top: 1090px; background-color: #010e2a"></div>
     </div>
     
     <div id="chart_mask" style="position: absolute; width: 1510px; height: 1000px; top: 134px; left: 7176px; background-color: #010e2a"></div>
 
-    <div class="button_on" id="button_A" style="left: 8478px; top: 52px">A</div>
-    <div class="button_off" id="button_B" style="left: 8590px; top: 52px">B</div>
+    <div class="button_on" id="button_A" style="left: 8438px; top: 52px">Course</div>
+    <div class="button_off" id="button_B" style="left: 8590px; top: 52px">Behavior</div>
 
 
     <script type="text/javascript" src="js/map.js"></script>
@@ -204,6 +202,8 @@
         $("div#chart_B_mask").hide();
         $("div#button_A").hide();
         $("div#button_B").hide();
+        $(".card").hide();
+        $(".card_info").hide();
 
         $("div#button_map").click(function () {
             pause = !pause;
@@ -231,6 +231,8 @@
             $("div#chart_B_mask").show();
             $("iframe#chart_A").hide();
             $("iframe#chart_B").show();
+            $(".card").show();
+            $(".card_info").show();
         })
         $(document).keypress(function (event) {
             if (event.keyCode == 83 || event.keyCode == 115) {
