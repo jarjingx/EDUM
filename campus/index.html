@@ -1,10 +1,21 @@
-﻿<!DOCTYPE html>
+﻿<!--------------------------------------------------------------------
+
+    Project:    Microsoft - LightHouse - EDUM
+
+    Author:     Jiajing Xiong
+
+    Email:      v-jiaxio@microsoft.com
+                jarjingx@gmail.com
+
+-------------------------------------------------------------------->
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <title>campus</title>
-    <script type="text/javascript" src="frame/d3/d3.js"></script>
-    <script type="text/javascript" src="frame/jquery/jquery.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/animation.css">
 </head>
@@ -17,14 +28,14 @@
     <svg width="11024" height="1200" style="position:absolute;top:0px;left:0px">
         <rect width="11024" height="1200" fill="#010e2a"></rect>
         <image class="bg_pic trigger" xlink:href="image/left.png" width="1650" height="1200" x="0"></image>
-        <text class="tip trigger" x="250" y="88" font-family="Gotham" font-size="16px" text-anchor="start" fill="#ffffff">Participation in this project is voluntary. Collected data is held anonymously and will be used for this project only.</text>
+        <text class="tip trigger" x="270" y="88" font-family="Gotham" font-size="26px" text-anchor="start" fill="#ffffff">The data is used for the purpose with the participants’ consent.</text>
         <image id="map" class="trigger" xlink:href="image/map2.png" width="2500" height="1200" x="3994"></image>
         <image class="bg_pic trigger" xlink:href="image/right.png" width="1500" height="1200" x="9524"></image>
         <image id="left_title" class="trigger" xlink:href="icon/left_title.png" width="428" height="36" x="2050" y="68"></image>
         <image id="right_title" class="trigger" xlink:href="icon/right_title.png" width="486" height="38" x="7712" y="68"></image>
 
         <image id="line" class="trigger" xlink:href="icon/left_tech_intro_timeline_line.png" width="4" height="836" x="3318" y="154"></image>
-        <image class="trigger" id="event1" xlink:href="icon/1.png" width="732" height="102" x="3226" y="220"></image>
+        <image id="event1" class="trigger" xlink:href="icon/1.png" width="732" height="102" x="3226" y="220"></image>
         <image id="event2" class="trigger" xlink:href="icon/2.png" width="732" height="102" x="3226" y="334"></image>
         <image id="event3" class="trigger" xlink:href="icon/3.png" width="732" height="102" x="3226" y="448"></image>
         <image id="event4" class="trigger" xlink:href="icon/4.png" width="732" height="102" x="3226" y="562"></image>
@@ -43,8 +54,6 @@
         <image class="flash trigger" xlink:href="icon/left_tech_light4.png" width="634" height="864" x="1945" y="300"></image>
 
         <image id="timeline" class="trigger" xlink:href="icon/middle_timeline_time.png" width="1536" height="64" x="4660" y="1037"></image>
-
-        
 
         <text id="time" class="trigger" x="6313" y="322" font-family="gothambold" font-size="60px" text-anchor="middle" fill="#00f0ff">00:00</text>
         
@@ -66,14 +75,8 @@
             <text x="6270" y="749" font-family="gothambook" font-size="20px" text-anchor="start" fill="#ffffff">administration</text>
         </g>
 
-        <!--<rect width="366" height="200" x="6550" y="210" fill="none" stroke="#1bb7ff" stroke-width="1px"></rect>
-        <rect width="366" height="200" x="6550" y="440" fill="none" stroke="#1bb7ff" stroke-width="1px"></rect>
-        <rect width="366" height="200" x="6550" y="670" fill="none" stroke="#1bb7ff" stroke-width="1px"></rect>
-        <rect width="366" height="200" x="6550" y="900" fill="none" stroke="#1bb7ff" stroke-width="1px"></rect>-->
-
     </svg>
 
-    <!--<div id="light_mask" class="trigger"></div>-->
     <img id="light" class="trigger" src="icon/left_tech_light3.png">
     <img id="left_lower_icon" class="trigger" src="icon/left_tech_icons.png" style="position: absolute; left: 1568px; top: 814px">
 
@@ -109,54 +112,48 @@
         </g>
         
         <g class="card_info">
-            <text x="9179" y="526" font-family="GothamBold" font-size="64px" text-anchor="middle" fill="#ff5000">21%</text>
-            <text x="9179" y="552" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">truancy rate</text>
-            <text x="9430" y="526" font-family="GothamBold" font-size="64px" text-anchor="middle" fill="#ffe400">10%</text>
-            <text x="9430" y="552" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">distracted rate</text>
-
-            <text x="9179" y="674" font-family="GothamBold" font-size="64px" text-anchor="middle" fill="#69e459">251</text>
-            <text x="9179" y="700" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">self-study hour</text>
-            <text x="9420" y="674" font-family="GothamBold" font-size="64px" text-anchor="middle" fill="#00f7ff">10 -12</text>
-            <text x="9415" y="640" font-family="GothamBold" font-size="22px" text-anchor="middle" fill="#00f7ff">pm</text>
-            <text x="9528" y="640" font-family="GothamBold" font-size="22px" text-anchor="middle" fill="#00f7ff">am</text>
-            <text x="9430" y="700" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">self-study time</text>
-
-            <text x="9179" y="789" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">female</text>
-            <text x="9430" y="789" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">sophomore</text>
-            <text x="9179" y="875" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">business</text>
-            <text x="9430" y="875" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">GPA 3.5</text>
-
-            <text x="9791" y="526" font-family="GothamBold" font-size="64px" text-anchor="middle" fill="#ff5000">63%</text>
-            <text x="9791" y="552" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">truancy rate</text>
-            <text x="10042" y="526" font-family="GothamBold" font-size="64px" text-anchor="middle" fill="#ffe400">40%</text>
-            <text x="10042" y="552" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">distracted rate</text>
-
-            <text x="9791" y="674" font-family="GothamBold" font-size="64px" text-anchor="middle" fill="#69e459">79</text>
-            <text x="9791" y="700" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">self-study hour</text>
-            <text x="10032" y="674" font-family="GothamBold" font-size="64px" text-anchor="middle" fill="#00f7ff">10 -8</text>
-            <text x="10042" y="640" font-family="GothamBold" font-size="22px" text-anchor="middle" fill="#00f7ff">pm</text>
-            <text x="10127" y="640" font-family="GothamBold" font-size="22px" text-anchor="middle" fill="#00f7ff">am</text>
-            <text x="10042" y="700" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">self-study time</text>
-
-            <text x="9791" y="789" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">male</text>
-            <text x="10042" y="789" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">sophomore</text>
-            <text x="9791" y="875" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">business</text>
-            <text x="10042" y="875" font-family="GothamBook" font-size="22px" text-anchor="middle" fill="#ffffff">GPA 2.5</text>
+            <!--left card information-->
+            <text x="9179" y="526" class="card_font_big" fill="#ff5000">21%</text>
+            <text x="9179" y="552" class="card_font_sml" fill="#ffffff">truancy rate</text>
+            <text x="9430" y="526" class="card_font_big" fill="#ffe400">10%</text>
+            <text x="9430" y="552" class="card_font_sml" fill="#ffffff">distracted rate</text>
+            <text x="9179" y="674" class="card_font_big" fill="#69e459">251</text>
+            <text x="9179" y="700" class="card_font_sml" fill="#ffffff">self-study hour</text>
+            <text x="9420" y="674" class="card_font_big" fill="#00f7ff">10 -12</text>
+            <text x="9415" y="640" class="card_font_sml" fill="#00f7ff">pm</text>
+            <text x="9528" y="640" class="card_font_sml" fill="#00f7ff">am</text>
+            <text x="9430" y="700" class="card_font_sml" fill="#ffffff">self-study time</text>
+            <text x="9179" y="789" class="card_font_sml" fill="#ffffff">female</text>
+            <text x="9430" y="789" class="card_font_sml" fill="#ffffff">sophomore</text>
+            <text x="9179" y="875" class="card_font_sml" fill="#ffffff">business</text>
+            <text x="9430" y="875" class="card_font_sml" fill="#ffffff">GPA 3.5</text>
+            <!--card information-->
+            <text x="9791" y="526" class="card_font_big" fill="#ff5000">63%</text>
+            <text x="9791" y="552" class="card_font_sml" fill="#ffffff">truancy rate</text>
+            <text x="10042" y="526" class="card_font_big" fill="#ffe400">40%</text>
+            <text x="10042" y="552" class="card_font_sml" fill="#ffffff">distracted rate</text>
+            <text x="9791" y="674" class="card_font_big" fill="#69e459">79</text>
+            <text x="9791" y="700" class="card_font_sml" fill="#ffffff">self-study hour</text>
+            <text x="10032" y="674" class="card_font_big" fill="#00f7ff">10 -8</text>
+            <text x="10042" y="640" class="card_font_sml" fill="#00f7ff">pm</text>
+            <text x="10127" y="640" class="card_font_sml" fill="#00f7ff">am</text>
+            <text x="10042" y="700" class="card_font_sml" fill="#ffffff">self-study time</text>
+            <text x="9791" y="789" class="card_font_sml" fill="#ffffff">male</text>
+            <text x="10042" y="789" class="card_font_sml" fill="#ffffff">sophomore</text>
+            <text x="9791" y="875" class="card_font_sml" fill="#ffffff">business</text>
+            <text x="10042" y="875" class="card_font_sml" fill="#ffffff">GPA 2.5</text>
         </g>
     </svg>
 
     <div id="button_map" class="trigger">pause</div>
 
-
-    
-    
     <img class="cloud1 trigger" src="icon/left_tech_cloud.png" />
     <img class="cloud2 trigger" src="icon/left_tech_cloud.png" />
     <img class="cloud3 trigger" src="icon/left_tech_cloud.png" />
     <img class="azure trigger" src="icon/left_tech_azure.png" />
     <img class="spark trigger" src="icon/left_tech_spark.png" />
     <img class="light1 trigger" src="icon/left_tech_light1.png" />
-    <img class="trigger light0" src="icon/left_tech_light0.png" />
+    <img class="light0 trigger" src="icon/left_tech_light0.png" />
     <img class="light2 trigger" src="icon/left_tech_light2.png" />
 
     <img id="sun1" class="time trigger" src="icon/middle_timeline_icon_sun1.png">
@@ -193,75 +190,8 @@
     <div class="button_on" id="button_A" style="left: 8438px; top: 52px">Course</div>
     <div class="button_off" id="button_B" style="left: 8590px; top: 52px">Behavior</div>
 
-
     <script type="text/javascript" src="js/map.js"></script>
-    <script type="text/javascript">
-        $(".trigger").css("animation-play-state", "paused");
-        var trigger_count = 0;
-        $("div#chart_A_mask").hide();
-        $("div#chart_B_mask").hide();
-        $("div#button_A").hide();
-        $("div#button_B").hide();
-        $(".card").hide();
-        $(".card_info").hide();
+    <script type="text/javascript" src="js/display.js"></script>
 
-        $("div#button_map").click(function () {
-            pause = !pause;
-            if (pause)
-                $("div#button_map").html("start");
-            else
-                $("div#button_map").html("pause");
-        })
-        $("div#button_A").click(function () {
-            $("div#button_A").removeClass("button_off");
-            $("div#button_B").removeClass("button_on");
-            $("div#button_A").addClass("button_on");
-            $("div#button_B").addClass("button_off");
-            $("div#chart_A_mask").show();
-            $("div#chart_B_mask").hide();
-            $("iframe#chart_A").show();
-            $("iframe#chart_B").hide();
-        })
-        $("div#button_B").click(function () {
-            $("div#button_A").removeClass("button_on");
-            $("div#button_B").removeClass("button_off");
-            $("div#button_A").addClass("button_off");
-            $("div#button_B").addClass("button_on");
-            $("div#chart_A_mask").hide();
-            $("div#chart_B_mask").show();
-            $("iframe#chart_A").hide();
-            $("iframe#chart_B").show();
-            $(".card").show();
-            $(".card_info").show();
-        })
-        $(document).keypress(function (event) {
-            if (event.keyCode == 83 || event.keyCode == 115) {
-                trigger_count++;
-                if (trigger_count == 1) {
-                    document.getElementById("bgm").play();
-                    $("iframe#chart_A").hide();
-                    $("iframe#chart_B").hide();
-                    $("iframe#chart_A").addClass("trigger");
-                    $("iframe#chart_B").addClass("trigger");
-                    $("div#chart_mask").hide();
-                    $(".trigger").css("animation-play-state", "running");
-                    setTimeout(function () {
-                        $("div#chart_A_mask").show();
-                        $("iframe#chart_A").show();
-                        $("div#button_A").show();
-                        $("div#button_B").show();
-                    }, 8000);
-                    for (var i = 1; i < 10000; i++)
-                        setTimeout(flash, 4000 + 1000 * i);
-                }
-                if (trigger_count == 2) {
-                    $(".scan").css("animation-play-state", "running");
-                    setTimeout(function () {
-                        $(".result").css("animation-play-state", "running");
-                    }, 19000);
-                }
-            }
-        })
-    </script>
 </body>
 </html>
