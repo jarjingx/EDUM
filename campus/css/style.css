@@ -1,3 +1,13 @@
+/*------------------------------------------------------------------
+
+    Project:    Microsoft - LightHouse - EDUM
+
+    Author:     Jiajing Xiong
+
+    Email:      v-jiaxio@microsoft.com
+                jarjingx@gmail.com
+
+------------------------------------------------------------------*/
 
     div.wrapper {
         position: absolute;
@@ -374,12 +384,10 @@
         font-family: GothamBook;
         font-size: 22px;
         text-anchor: middle;
-        fill: #ffffff;
     }
 
     .card_font_big {
         font-family: GothamBold;
         font-size: 64px;
         text-anchor: middle;
-        fill: #ff5000;
     } 

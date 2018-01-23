@@ -1,4 +1,15 @@
-﻿var projection = d3.geoMercator().center([116.3200819, 40.0026086]).translate([5244, 530]).scale([2250000]);
+﻿/*------------------------------------------------------------------
+
+    Project:    Microsoft - LightHouse - EDUM
+
+    Author:     Jiajing Xiong
+
+    Email:      v-jiaxio@microsoft.com
+                jarjingx@gmail.com
+
+------------------------------------------------------------------*/
+
+var projection = d3.geoMercator().center([116.3200819, 40.0026086]).translate([5244, 530]).scale([2250000]);
 var x, y, r;
 // 主楼：40.00063489  116.3263251
 // 图书馆：40.00355714  116.3190488
@@ -150,7 +161,7 @@ d3.tsv("data/edum.tsv", function (data) {
         .attr("text-anchor", "middle")
         .attr("fill", "white")
         .attr("font-family", "GothamBook")
-        .attr("font-size", "16px")
+        .attr("font-size", "20px")
         .text(function (d) { return getr(d["Count" + t]) < radius ? "" : d["Count" + t]; })
     // 标注建筑物人数（ 中心放置 ）
     d3.select("svg").selectAll("text.map2")
@@ -160,11 +171,11 @@ d3.tsv("data/edum.tsv", function (data) {
         .attr("class", "map2 trigger")
         .style("animation-play-state", "paused")
         .attr("x", function (d) { return d.x; })
-        .attr("y", function (d) { return d.y + 6; })
+        .attr("y", function (d) { return d.y + 8; })
         .attr("text-anchor", "middle")
         .attr("fill", "white")
         .attr("font-family", "GothamBook")
-        .attr("font-size", "16px")
+        .attr("font-size", "20px")
         .text(function (d) { return getr(d["Count" + t]) < radius0 || getr(d["Count" + t]) > radius ? "" : d["Count" + t]; })
     // 绘制建筑物类型图标
     d3.select("svg").selectAll("image.map")
@@ -188,14 +199,4 @@ d3.tsv("data/edum.tsv", function (data) {
         });
     print_time(t);
     t++
-    //$(".map").hide();
-    //$(".map1").hide();
-    //$(".map2").hide();
-    //setTimeout(function () {
-    //    $(".map").show();
-    //    $(".map1").show();
-    //    $(".map2").show();
-    //}, 4000);
-    // 显示的时间范围为早晨8:00至晚上24:00，t的取值为16-48
-    
 });
