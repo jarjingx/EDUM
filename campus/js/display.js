@@ -18,6 +18,7 @@ $("div#button_A").hide();
 $("div#button_B").hide();
 $(".card").hide();
 $(".card_info").hide();
+$(".result").hide();
 
 $("div#button_map").click(function () {
     pause = !pause;
@@ -47,8 +48,7 @@ $("div#button_B").click(function () {
     $("div#chart_B_mask").show();
     $("iframe#chart_A").hide();
     $("iframe#chart_B").show();
-    $(".card").show();
-    $(".card_info").show();
+
     scan_trigger = true;
 })
 
@@ -74,10 +74,13 @@ $(document).keypress(function (event) {
         }
         if (trigger_count == 2)
             if (scan_trigger) {
-                $(".scan").css("animation-play-state", "running");
-                setTimeout(function () {
-                    $(".result").css("animation-play-state", "running");
-                }, 19000);
+                $(".card").show();
+                $(".card_info").show();
+                $(".result").show();
+                //$(".scan").css("animation-play-state", "running");
+                //setTimeout(function () {
+                //    $(".result").css("animation-play-state", "running");
+                //}, 19000);
             }
             else
                 trigger_count = 1;

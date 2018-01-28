@@ -215,8 +215,7 @@
     }
 
     .result {
-        animation: show 3s linear;
-        animation-play-state: paused;
+        animation: show 1s linear;
         animation-fill-mode: both;
     }
 
