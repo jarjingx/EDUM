@@ -8,6 +8,9 @@
                 jarjingx@gmail.com
 
 ------------------------------------------------------------------*/
+    body {
+        overflow: hidden;
+    }
 
     div.wrapper {
         position: absolute;
