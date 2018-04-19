@@ -64,23 +64,14 @@ function flash() {
             return;
         }
     // 不希望暂停，且仍未暂停，继续执行后续逻辑刷新地图数据
-        
+    
     // 绘制代表建筑物人数的圆圈
     d3.select("svg").selectAll("circle.map")
         .transition()
         .duration(duration)
         .ease(d3.easeCubicInOut)
         .attr("r", function (d) { return getr(d["Count" + t]); });
-    // 标注建筑物人数
-    d3.select("svg").selectAll("text.map1")
-        .transition()
-        .duration(duration)
-        .text(function (d) { return getr(d["Count" + t]) < radius ? "" : d["Count" + t]; })
-    // 标注建筑物人数
-    d3.select("svg").selectAll("text.map2")
-        .transition()
-        .duration(duration)
-        .text(function (d) { return getr(d["Count" + t]) < radius0 || getr(d["Count" + t]) > radius ? "" : d["Count" + t]; })
+
     // 绘制建筑物类型图标
     d3.select("svg").selectAll("image.map")
         .transition()
@@ -94,7 +85,28 @@ function flash() {
             if (d.ClusteredType == "library") return "icon/middle_map_dots_icon_library.png";
             if (d.ClusteredType == "restaurant") return "icon/middle_map_dots_icon_restaurant.png";
         });
+
+    // 更新图例处各类型的数量
+    d3.select("text#count_dorm").text(count[t].dorm.toString());
+    d3.select("text#count_restaurant").text(count[t].restaurant.toString());
+    d3.select("text#count_gym").text(count[t].gym.toString());
+    d3.select("text#count_classroom").text(count[t].classroom.toString());
+    d3.select("text#count_library").text(count[t].library.toString());
+
+    // 更新 warning 标志
+    if (t == 38)
+        $("#warning").show();
+    if (t == 43)
+        $("#warning").hide();
+
+    // 更新图例处的时间显示
     print_time(t);
+
+    // 更新当前时间计数器
+    // 引入 wait 用于插入 4秒（即4个迭代周期）的等待时长
+    // 从而保证进度条走到 24:00 时画面整体静止 4秒 再继续从 8:00 开始显示
+    // 因为每个时间图标（太阳、月亮）的变大时长为 4秒（4个迭代周期）
+    // 为了保证最后一个图标和第一个图标不同时变大，特加入此等待周期
     t++;
     if (t > 48)
         if (wait < 3) {
@@ -102,23 +114,37 @@ function flash() {
             wait++;
         }
         else {
+            // 原始数据是用 0:00 开始的，但是设计图要求从 8:00 开始，对应 t = 16
             t = 16;
             wait = 0;
         }
 }
 
 // 以下为主程序部分
+
+// t 用于控制迭代周期，每个迭代周期代表数据的半小时（t=0 代表 0:00 的数据，t=1 代表 0:30 的数据）
+// 程序每 1 秒迭代一个周期（整体迭代逻辑参见 display.js）
 var t = 16;
 var wait = 0;
 var text;
 var x, y;
 var radius = 80;  // 定义允许输出人数和图标的半径阈值
-var radius0 = 30; // 定义允许输出人数的半径阈值
-var duration = 1000;  // 定义动画持续时间
+var duration = 1000;  // 定义地图上圆圈变形动画的持续时间
 var test = 0;
-var paused = false;
-var pause = false;
+// 以下两变量用于控制地图暂停启动逻辑
+var paused = false;     // 记录当前地图是否暂停       true：已暂停    false：正运行
+var pause = false;      // 记录当前是否需要地图暂停     true：需要暂停   false：需要启动
+
+var switched = false;
+var count = [];
+
 d3.tsv("data/edum.tsv", function (data) {
+    for (var i = 0; i <= 48; i++)
+        count[i] = { classroom: 0, administration: 0, dorm: 0, gym: 0, library: 0, restaurant: 0, office: 0, service: 0, event: 0 };
+    for (var i = 0; i < data.length; i++)
+        for (var j = 0; j <= 48; j++)
+            count[j][data[i].ClusteredType] += parseInt(data[i]["Count" + j]);
+
     // 产生各建筑物经纬度对像素坐标的投影
     for (var i = 0; i < data.length; i++) {
         // [x, y] = projection([data[i].ClusteredLongtitude, data[i].ClusteredLatitude]);
@@ -134,7 +160,7 @@ d3.tsv("data/edum.tsv", function (data) {
         .data(data)
         .enter()
         .append("circle")
-        .attr("class", "map trigger")
+        .attr("class", "map trigger away")
         .style("animation-play-state", "paused")
         .attr("cx", function (d) { return d.x; })
         .attr("cy", function (d) { return d.y; })
@@ -143,52 +169,28 @@ d3.tsv("data/edum.tsv", function (data) {
             if (d.ClusteredType == "classroom") return "#01a01f";
             if (d.ClusteredType == "administration") return "#2c3eef";
             if (d.ClusteredType == "dorm") return "#9653ff";
-            if (d.ClusteredType == "gym") return "#fff800";
+            if (d.ClusteredType == "gym") return "#fa6b00";
             if (d.ClusteredType == "library") return "#00e2ff";
             if (d.ClusteredType == "restaurant") return "#ff40db";
             return "gray";
         })
         .attr("fill-opacity", "0.5");
-    // 标注建筑物人数（ 靠下放置 ）
-    d3.select("svg").selectAll("text.map1")
-        .data(data)
-        .enter()
-        .append("text")
-        .attr("class", "map1 trigger")
-        .style("animation-play-state", "paused")
-        .attr("x", function (d) { return d.x; })
-        .attr("y", function (d) { return d.y + 38; })
-        .attr("text-anchor", "middle")
-        .attr("fill", "white")
-        .attr("font-family", "GothamBook")
-        .attr("font-size", "20px")
-        .text(function (d) { return getr(d["Count" + t]) < radius ? "" : d["Count" + t]; })
-    // 标注建筑物人数（ 中心放置 ）
-    d3.select("svg").selectAll("text.map2")
-        .data(data)
-        .enter()
-        .append("text")
-        .attr("class", "map2 trigger")
-        .style("animation-play-state", "paused")
-        .attr("x", function (d) { return d.x; })
-        .attr("y", function (d) { return d.y + 8; })
-        .attr("text-anchor", "middle")
-        .attr("fill", "white")
-        .attr("font-family", "GothamBook")
-        .attr("font-size", "20px")
-        .text(function (d) { return getr(d["Count" + t]) < radius0 || getr(d["Count" + t]) > radius ? "" : d["Count" + t]; })
+
     // 绘制建筑物类型图标
     d3.select("svg").selectAll("image.map")
+        // d3 库绑定数据操作
         .data(data)
+        // 建立占位符
         .enter()
         .append("image")
-        .attr("class", "map trigger")
+        .attr("class", "map trigger away")
         .style("animation-play-state", "paused")
         .attr("x", function (d) { return d.x - 25; })
-        .attr("y", function (d) { return d.y - 38; })
+        .attr("y", function (d) { return d.y - 34; })
         .attr("width", "50")
         .attr("height", "50")
         .attr("xlink:href", function (d) {
+            // 生成各类型对应的 icon
             if (getr(d["Count" + t]) < radius) return;
             if (d.ClusteredType == "classroom") return "icon/middle_map_dots_icon_classroom.png";
             if (d.ClusteredType == "administration") return "icon/middle_map_dots_icon_administration.png";
@@ -197,6 +199,12 @@ d3.tsv("data/edum.tsv", function (data) {
             if (d.ClusteredType == "library") return "icon/middle_map_dots_icon_library.png";
             if (d.ClusteredType == "restaurant") return "icon/middle_map_dots_icon_restaurant.png";
         });
+    // 更新图例处各类型的数量
+    d3.select("text#count_dorm").text(count[t].dorm.toString());
+    d3.select("text#count_restaurant").text(count[t].restaurant.toString());
+    d3.select("text#count_gym").text(count[t].gym.toString());
+    d3.select("text#count_classroom").text(count[t].classroom.toString());
+    d3.select("text#count_library").text(count[t].library.toString());
     print_time(t);
     t++
 });

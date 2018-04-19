@@ -9,14 +9,14 @@
 
 ------------------------------------------------------------------*/
     body {
-        overflow: hidden;
+        /*overflow: hidden;*/
     }
 
     div.wrapper {
         position: absolute;
         width: 1472px;
         height: 30px;
-        top: 1039px;
+        top: 1076px;
         left: 4688px;
         overflow: hidden;
     }
@@ -139,7 +139,7 @@
     img#sun1 {
         position: absolute;
         left: 4674px;
-        top: 1000px;
+        top: 1037px;
         transform-origin: 50% 100%;
         animation: show 1s 2s, scale 36s linear infinite 4s;
         animation-fill-mode: both;
@@ -148,7 +148,7 @@
     img#sun2 {
         position: absolute;
         left: 4856px;
-        top: 1000px;
+        top: 1037px;
         transform-origin: 50% 100%;
         animation: show 1s 2s, scale 36s linear infinite 8s;
         animation-fill-mode: both;
@@ -157,7 +157,7 @@
     img#sun3 {
         position: absolute;
         left: 5041px;
-        top: 1000px;
+        top: 1037px;
         transform-origin: 50% 100%;
         animation: show 1s 2s, scale 36s linear infinite 12s;
         animation-fill-mode: both;
@@ -166,7 +166,7 @@
     img#sun4 {
         position: absolute;
         left: 5225px;
-        top: 1000px;
+        top: 1037px;
         transform-origin: 50% 100%;
         animation: show 1s 2s, scale 36s linear infinite 16s;
         animation-fill-mode: both;
@@ -175,7 +175,7 @@
     img#sun5 {
         position: absolute;
         left: 5409px;
-        top: 1000px;
+        top: 1037px;
         transform-origin: 50% 100%;
         animation: show 1s 2s, scale 36s linear infinite 20s;
         animation-fill-mode: both;
@@ -184,7 +184,7 @@
     img#night1 {
         position: absolute;
         left: 5593px;
-        top: 1000px;
+        top: 1037px;
         transform-origin: 50% 100%;
         animation: show 1s 2s, scale 36s linear infinite 24s;
         animation-fill-mode: both;
@@ -193,7 +193,7 @@
     img#night2 {
         position: absolute;
         left: 5775px;
-        top: 1000px;
+        top: 1037px;
         transform-origin: 50% 100%;
         animation: show 1s 2s, scale 36s linear infinite 28s;
         animation-fill-mode: both;
@@ -202,7 +202,7 @@
     img#night3 {
         position: absolute;
         left: 5960px;
-        top: 1000px;
+        top: 1037px;
         transform-origin: 50% 100%;
         animation: show 1s 2s, scale 36s linear infinite 32s;
         animation-fill-mode: both;
@@ -211,9 +211,14 @@
     img#night4 {
         position: absolute;
         left: 6143px;
-        top: 1000px;
+        top: 1037px;
         transform-origin: 50% 100%;
         animation: show 1s 2s, scale 36s linear infinite 36s;
+        animation-fill-mode: both;
+    }
+
+    #warning {
+        animation: spark 1s linear infinite;
         animation-fill-mode: both;
     }
 
@@ -234,11 +239,10 @@
         animation-fill-mode: both;
     }
 
-    .legend, #timeline, #left_title {
+    .legend, #timeline, #left_title, #attendance {
         animation: show 1s linear;
         animation-delay: 2s;
         animation-fill-mode: both;
-        animation-play-state: unset;
     }
 
     .map_pic {
@@ -366,8 +370,8 @@
     
     #button_map {
         position: absolute;
-        left: 6213px;
-        top: 390px;
+        left: 6210px;
+        top: 360px;
         width: 200px;
         height: 70px;
         border-radius: 35px;

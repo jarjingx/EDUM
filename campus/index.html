@@ -21,7 +21,7 @@
 </head>
 <body>
     <audio id="bgm" loop="loop">
-        <source src="audio/motion_music.mp3" type="audio/mpeg" />
+        <!--<source src="audio/motion_music.mp3" type="audio/mpeg" />-->
         Your browser does not support the audio element.
     </audio>
 
@@ -29,8 +29,9 @@
         <rect width="11024" height="1200" fill="#010e2a"></rect>
         <image class="bg_pic" xlink:href="image/left.png" width="1650" height="1200" x="0"></image>
         <text class="tip trigger" x="270" y="88" font-family="Gotham" font-size="26px" text-anchor="start" fill="#ffffff">The data is used for the purpose with the participants’ consent.</text>
-        <image xlink:href="image/map2.png" width="2500" height="1200" x="3994"></image>
-        <image class="bg_pic" xlink:href="image/right.png" width="1500" height="1200" x="9524"></image>
+        <image class="away" xlink:href="image/map2.png" width="2500" height="1200" x="3994"></image>
+        <image id="attendance" class="trigger away"  xlink:href="image/attendance_rate.png" width="1473" height="326" x="4686" y="810"></image>
+        <image class="bg_pic" xlink:href="image/right.png" width="1968" height="1200" x="9056"></image>
         <image id="left_title" class="trigger" xlink:href="icon/left_title.png" width="428" height="36" x="2050" y="68"></image>
         <image id="right_title" class="trigger" xlink:href="icon/right_title.png" width="486" height="38" x="7712" y="68"></image>
 
@@ -53,99 +54,100 @@
         
         <image class="flash trigger" xlink:href="icon/left_tech_light4.png" width="634" height="864" x="1945" y="300"></image>
 
-        <image id="timeline" class="trigger" xlink:href="icon/middle_timeline_time.png" width="1536" height="64" x="4660" y="1037"></image>
+        
+        <image id="timeline" class="trigger away" xlink:href="icon/middle_timeline_time.png" width="1536" height="64" x="4660" y="1074"></image>
 
-        <text id="time" class="trigger" x="6313" y="322" font-family="gothambold" font-size="60px" text-anchor="middle" fill="#00f0ff">00:00</text>
+        <text id="time" class="trigger away" x="6313" y="312" font-family="gothambold" font-size="60px" text-anchor="middle" fill="#00f0ff">00:00</text>
         
         <!--legend of the map-->
-        <g class="legend trigger">
-            <rect width="290" height="584" x="6168" y="214" fill="none" stroke="#1bb7ff" stroke-width="1px"></rect>
-            <rect width="278" height="572" x="6174" y="220" fill="none" stroke="#1bb7ff" stroke-width="1px"></rect>
-            <circle cx="6245" cy="533" r="15" fill="#9653ff"></circle>
-            <circle cx="6245" cy="575" r="15" fill="#ff40db"></circle>
-            <circle cx="6245" cy="617" r="15" fill="#fff800"></circle>
-            <circle cx="6245" cy="659" r="15" fill="#01a01f"></circle>
-            <circle cx="6245" cy="701" r="15" fill="#00e2ff"></circle>
-            <circle cx="6245" cy="743" r="15" fill="#2c3eef"></circle>
-            <text x="6270" y="539" font-family="gothambook" font-size="20px" text-anchor="start" fill="#ffffff">dormitory</text>
-            <text x="6270" y="581" font-family="gothambook" font-size="20px" text-anchor="start" fill="#ffffff">cafeteria</text>
-            <text x="6270" y="623" font-family="gothambook" font-size="20px" text-anchor="start" fill="#ffffff">gym</text>
-            <text x="6270" y="665" font-family="gothambook" font-size="20px" text-anchor="start" fill="#ffffff">classroom</text>
-            <text x="6270" y="707" font-family="gothambook" font-size="20px" text-anchor="start" fill="#ffffff">library</text>
-            <text x="6270" y="749" font-family="gothambook" font-size="20px" text-anchor="start" fill="#ffffff">administration</text>
+        <g class="legend trigger away">
+            <rect width="290" height="792" x="6168" y="210" fill="none" stroke="#1bb7ff" stroke-width="1px"></rect>
+            <rect width="278" height="780" x="6174" y="216" fill="none" stroke="#1bb7ff" stroke-width="1px"></rect>
+            <circle cx="6245" cy="503" r="15" fill="#9653ff"></circle>
+            <circle cx="6245" cy="605" r="15" fill="#ff40db"></circle>
+            <circle cx="6245" cy="707" r="15" fill="#fa6b00"></circle>
+            <circle cx="6245" cy="809" r="15" fill="#01a01f"></circle>
+            <circle cx="6245" cy="911" r="15" fill="#00e2ff"></circle>
+            
+            <text id="count_dorm" x="6270" y="513" font-family="gothambook" font-size="30px" text-anchor="start" fill="#ffffff">420</text>
+            <text id="count_restaurant" x="6270" y="615" font-family="gothambook" font-size="30px" text-anchor="start" fill="#ffffff">420</text>
+            <text id="count_gym" x="6270" y="717" font-family="gothambook" font-size="30px" text-anchor="start" fill="#ffffff">420</text>
+            <text id="count_classroom" x="6270" y="819" font-family="gothambook" font-size="30px" text-anchor="start" fill="#ffffff">420</text>
+            <text id="count_library" x="6270" y="921" font-family="gothambook" font-size="30px" text-anchor="start" fill="#ffffff">420</text>
+
+            <text x="6270" y="553" font-family="gothambook" font-size="20px" text-anchor="start" fill="#ffffff">dormitory</text>
+            <text x="6270" y="655" font-family="gothambook" font-size="20px" text-anchor="start" fill="#ffffff">cafeteria</text>
+            <text x="6270" y="757" font-family="gothambook" font-size="20px" text-anchor="start" fill="#ffffff">gym</text>
+            <text x="6270" y="859" font-family="gothambook" font-size="20px" text-anchor="start" fill="#ffffff">classroom</text>
+            <text x="6270" y="961" font-family="gothambook" font-size="20px" text-anchor="start" fill="#ffffff">library</text>
         </g>
 
+        <!--dashboard 部分-->
+        <image class="come" xlink:href="image/dashboard_bg_line.png" width="3600" height="1200" x="3792" y="0"></image>
+        <image class="come" xlink:href="image/dashboard_light.png" width="3600" height="1200" x="3792" y="0"></image>
+        <rect class="come" width="2074" height="238" x="4466" y="916" rx="1037" ry="119" fill="#0494fb" fill-opacity="0.2" stroke="#0494fb" stroke-width="4px"></rect>
+        <image class="come" xlink:href="image/dashboard_shallow.png" width="604" height="72" x="4748" y="986"></image>
+        <image class="come" xlink:href="image/dashboard_shallow.png" width="604" height="72" x="5670" y="986"></image>
+
+        <image class="come" xlink:href="icon/dashboard_icon_student1.png" width="156" height="156" x="4966" y="212"></image>
+        <image class="come" xlink:href="icon/dashboard_icon_student2.png" width="156" height="156" x="5886" y="212"></image>
+        
+        <text class="come" x="5044" y="413" font-family="gothambook" font-size="20px" text-anchor="middle" fill="#ffffff">Postgraduate</text>
+        <text class="come" x="5964" y="413" font-family="gothambook" font-size="20px" text-anchor="middle" fill="#ffffff">Undergraduate</text>
+        <text class="come" x="5508" y="416" font-family="gothambook" font-size="120px" text-anchor="middle" fill="#1db7ff">VS</text>
+
+        <rect class="come" width="375" height="60" x="4854" y="448" rx="30" ry="30" fill="#00c300"></rect>
+        <rect class="come" width="420" height="60" x="5753" y="448" rx="30" ry="30" fill="#d60019"></rect>
+        <text class="come" x="5044" y="488" font-family="gothambold" font-size="30px" text-anchor="middle" fill="#ffffff">SELF-DISCIPLINED</text>
+        <text class="come" x="5964" y="488" font-family="gothambold" font-size="30px" text-anchor="middle" fill="#ffffff">NON-SELF-DISCIPLINED</text>
+        
+        <rect class="come" width="600" height="12" x="4740" y="568" rx="6" ry="6" fill="#1db7ff" fill-opacity="0.3"></rect>
+        <rect class="come" width="600" height="12" x="4740" y="640" rx="6" ry="6" fill="#1db7ff" fill-opacity="0.3"></rect>
+        <rect class="come" width="600" height="12" x="4740" y="712" rx="6" ry="6" fill="#1db7ff" fill-opacity="0.3"></rect>
+        <rect class="come" width="600" height="12" x="4740" y="782" rx="6" ry="6" fill="#1db7ff" fill-opacity="0.3"></rect>
+        <rect class="come" width="600" height="12" x="4740" y="856" rx="6" ry="6" fill="#1db7ff" fill-opacity="0.3"></rect>
+        <rect class="come" width="600" height="12" x="5662" y="568" rx="6" ry="6" fill="#1db7ff" fill-opacity="0.3"></rect>
+        <rect class="come" width="600" height="12" x="5662" y="640" rx="6" ry="6" fill="#1db7ff" fill-opacity="0.3"></rect>
+        <rect class="come" width="600" height="12" x="5662" y="712" rx="6" ry="6" fill="#1db7ff" fill-opacity="0.3"></rect>
+        <rect class="come" width="600" height="12" x="5662" y="782" rx="6" ry="6" fill="#1db7ff" fill-opacity="0.3"></rect>
+        <rect class="come" width="600" height="12" x="5662" y="856" rx="6" ry="6" fill="#1db7ff" fill-opacity="0.3"></rect>
+    
+        <text class="come" x="4668" y="581" font-family="gothambook" font-size="20px" text-anchor="start" fill="#1db7ff">89%</text>
+        <text class="come" x="4668" y="653" font-family="gothambook" font-size="20px" text-anchor="start" fill="#1db7ff">11%</text>
+        <text class="come" x="4668" y="725" font-family="gothambook" font-size="20px" text-anchor="start" fill="#1db7ff">12500</text>
+        <text class="come" x="4668" y="795" font-family="gothambook" font-size="20px" text-anchor="start" fill="#1db7ff">110min</text>
+        <text class="come" x="4668" y="869" font-family="gothambook" font-size="20px" text-anchor="start" fill="#1db7ff">91%</text>
+        
+        <text class="come" x="5508" y="581" font-family="gothambook" font-size="26px" text-anchor="middle" fill="#ffffff">Attendance</text>
+        <text class="come" x="5508" y="653" font-family="gothambook" font-size="26px" text-anchor="middle" fill="#ffffff">Distraction</text>
+        <text class="come" x="5508" y="725" font-family="gothambook" font-size="26px" text-anchor="middle" fill="#ffffff">Daily Steps</text>
+        <text class="come" x="5508" y="795" font-family="gothambook" font-size="26px" text-anchor="middle" fill="#ffffff">Daily Self-study Time</text>
+        <text class="come" x="5508" y="869" font-family="gothambook" font-size="26px" text-anchor="middle" fill="#ffffff">GPA</text>
+
+        <text class="come" x="6293" y="581" font-family="gothambook" font-size="20px" text-anchor="start" fill="#1db7ff">74%</text>
+        <text class="come" x="6293" y="653" font-family="gothambook" font-size="20px" text-anchor="start" fill="#1db7ff">42%</text>
+        <text class="come" x="6293" y="725" font-family="gothambook" font-size="20px" text-anchor="start" fill="#1db7ff">2300</text>
+        <text class="come" x="6293" y="795" font-family="gothambook" font-size="20px" text-anchor="start" fill="#1db7ff">30min</text>
+        <text class="come" x="6293" y="869" font-family="gothambook" font-size="20px" text-anchor="start" fill="#1db7ff">79%</text>
+    </svg>
+
+    <svg class="away" width="11024" height="1200" style="position:absolute;top:0px;left:0px">
+        <image id="warning" class="away" xlink:href="icon/warning.png" width="53" height="66" x="5458" y="320"></image>
     </svg>
 
     <img id="light" class="trigger" src="icon/left_tech_light3.png">
     <img id="left_lower_icon" class="trigger" src="icon/left_tech_icons.png" style="position: absolute; left: 1568px; top: 814px">
 
-    <img class="map_pic trigger" src="image/middle_pg1.png" style="position: absolute; left: 4234px; top: 210px">
-    <img class="map_pic trigger" src="image/middle_pg2.png" style="position: absolute; left: 4234px; top: 440px">
-    <img class="map_pic trigger" src="image/middle_pg3.png" style="position: absolute; left: 4234px; top: 670px">
-    <img class="map_pic trigger" src="image/middle_pg4.png" style="position: absolute; left: 4234px; top: 900px">
-    <img class="map_pic trigger" src="image/middle_pg5.png" style="position: absolute; left: 6550px; top: 210px">
-    <img class="map_pic trigger" src="image/middle_pg6.png" style="position: absolute; left: 6550px; top: 440px">
-    <img class="map_pic trigger" src="image/middle_pg7.png" style="position: absolute; left: 6550px; top: 670px">
-    <img class="map_pic trigger" src="image/middle_pg8.png" style="position: absolute; left: 6550px; top: 900px">
+    <img class="map_pic trigger away" src="image/middle_pg1.png" style="position: absolute; left: 4234px; top: 210px">
+    <img class="map_pic trigger away" src="image/middle_pg2.png" style="position: absolute; left: 4234px; top: 440px">
+    <img class="map_pic trigger away" src="image/middle_pg3.png" style="position: absolute; left: 4234px; top: 670px">
+    <img class="map_pic trigger away" src="image/middle_pg4.png" style="position: absolute; left: 4234px; top: 900px">
+    <img class="map_pic trigger away" src="image/middle_pg5.png" style="position: absolute; left: 6550px; top: 210px">
+    <img class="map_pic trigger away" src="image/middle_pg6.png" style="position: absolute; left: 6550px; top: 440px">
+    <img class="map_pic trigger away" src="image/middle_pg7.png" style="position: absolute; left: 6550px; top: 670px">
+    <img class="map_pic trigger away" src="image/middle_pg8.png" style="position: absolute; left: 6550px; top: 900px">
 
-    <img class="card" src="image/card_bg.png" style="position: absolute; left: 9054px; top: 254px">
-    <img class="card" src="image/card_bg.png" style="position: absolute; left: 9666px; top: 254px">
-
-    <img class="scan" src="image/card_scan.png" style="position:absolute;left:9054px;top:254px;clip:rect(0px, 502px,300px,0px)">
-    <img class="scan" src="image/card_scan.png" style="position:absolute;left:9666px;top:254px;clip:rect(0px, 502px,300px,0px)">
-
-    <div class="container">
-        <div class="scan" style="left: 0px;"></div>
-        <div class="scan" style="left: 612px;"></div>
-    </div>
-
-    <img class="card" src="image/card_form_boy.png" style="position: absolute; left: 9054px; top: 254px">
-    <img class="card" src="image/card_form_boy.png" style="position: absolute; left: 9666px; top: 254px">
-
-    <svg width="11024" height="1200" style="position:absolute;top:0px;left:0px">
-        <g class="result">
-            <text x="9260" y="350" font-family="GothamBook" font-size="26px" text-anchor="start" fill="#ffffff">self-disciplined</text>
-            <text x="9872" y="350" font-family="GothamBook" font-size="26px" text-anchor="start" fill="#ffffff">non-self-disciplined</text>
-            <image xlink:href="icon/lighthouse_campus_right_card_tag_green.png" width="90" height="90" x="9054" y="254"></image>
-            <image xlink:href="icon/lighthouse_campus_right_card_tag_red.png" width="90" height="90" x="9666" y="254"></image>
-        </g>
-        
-        <g class="card_info">
-            <!--left card information-->
-            <text x="9179" y="526" class="card_font_big" fill="#ff5000">4%</text>
-            <text x="9179" y="552" class="card_font_sml" fill="#ffffff">truancy rate</text>
-            <text x="9430" y="526" class="card_font_big" fill="#ffe400">11%</text>
-            <text x="9430" y="552" class="card_font_sml" fill="#ffffff">distracted rate</text>
-            <text x="9179" y="664" class="card_font_big" fill="#69e459">&gt;35</text>
-            <text x="9179" y="690" class="card_font_sml" fill="#ffffff">exercise time</text>
-            <text x="9179" y="715" class="card_font_sml" fill="#ffffff">(minute)</text>
-            <text x="9430" y="664" class="card_font_big" fill="#00f7ff">&gt;110</text>
-            <text x="9430" y="690" class="card_font_sml" fill="#ffffff">self-study time</text>
-            <text x="9430" y="715" class="card_font_sml" fill="#ffffff">(minute)</text>
-            <text x="9179" y="789" class="card_font_sml" fill="#ffffff">100 students</text>
-            <text x="9430" y="789" class="card_font_sml" fill="#ffffff">undergraduate</text>
-            <text x="9179" y="875" class="card_font_sml" fill="#ffffff">sci. / eng.</text>
-            <text x="9430" y="875" class="card_font_sml" fill="#ffffff">higher GPA</text>
-            <!--card information-->
-            <text x="9791" y="526" class="card_font_big" fill="#ff5000">26%</text>
-            <text x="9791" y="552" class="card_font_sml" fill="#ffffff">truancy rate</text>
-            <text x="10042" y="526" class="card_font_big" fill="#ffe400">42%</text>
-            <text x="10042" y="552" class="card_font_sml" fill="#ffffff">distracted rate</text>
-            <text x="9791" y="664" class="card_font_big" fill="#69e459">&lt;10</text>
-            <text x="9791" y="690" class="card_font_sml" fill="#ffffff">exercise time</text>
-            <text x="9791" y="715" class="card_font_sml" fill="#ffffff">(minute)</text>
-            <text x="10042" y="664" class="card_font_big" fill="#00f7ff">&lt;30</text>
-            <text x="10042" y="690" class="card_font_sml" fill="#ffffff">self-study time</text>
-            <text x="10042" y="715" class="card_font_sml" fill="#ffffff">(minute)</text>
-            <text x="9791" y="789" class="card_font_sml" fill="#ffffff">100 students</text>
-            <text x="10042" y="789" class="card_font_sml" fill="#ffffff">undergraduate</text>
-            <text x="9791" y="875" class="card_font_sml" fill="#ffffff">sci. / eng.</text>
-            <text x="10042" y="875" class="card_font_sml" fill="#ffffff">lower GPA</text>
-        </g>
-    </svg>
-
-    <div id="button_map" class="trigger">pause</div>
+    <div id="button_map" class="trigger away">pause</div>
 
     <img class="cloud1 trigger" src="icon/left_tech_cloud.png" />
     <img class="cloud2 trigger" src="icon/left_tech_cloud.png" />
@@ -156,38 +158,43 @@
     <img class="light0 trigger" src="icon/left_tech_light0.png" />
     <img class="light2 trigger" src="icon/left_tech_light2.png" />
 
-    <img id="sun1" class="time trigger" src="icon/middle_timeline_icon_sun1.png">
-    <img id="sun2" class="time trigger" src="icon/middle_timeline_icon_sun2.png">
-    <img id="sun3" class="time trigger" src="icon/middle_timeline_icon_sun3.png">
-    <img id="sun4" class="time trigger" src="icon/middle_timeline_icon_sun4.png">
-    <img id="sun5" class="time trigger" src="icon/middle_timeline_icon_sun5.png">
-    <img id="night1" class="time trigger" src="icon/middle_timeline_icon_night1.png">
-    <img id="night2" class="time trigger" src="icon/middle_timeline_icon_night2.png">
-    <img id="night3" class="time trigger" src="icon/middle_timeline_icon_night3.png">
-    <img id="night4" class="time trigger" src="icon/middle_timeline_icon_night4.png">
+    <!--中间地图时间轴上的图标-->
+    <img id="sun1" class="time trigger away" src="icon/middle_timeline_icon_sun1.png">
+    <img id="sun2" class="time trigger away" src="icon/middle_timeline_icon_sun2.png">
+    <img id="sun3" class="time trigger away" src="icon/middle_timeline_icon_sun3.png">
+    <img id="sun4" class="time trigger away" src="icon/middle_timeline_icon_sun4.png">
+    <img id="sun5" class="time trigger away" src="icon/middle_timeline_icon_sun5.png">
+    <img id="night1" class="time trigger away" src="icon/middle_timeline_icon_night1.png">
+    <img id="night2" class="time trigger away" src="icon/middle_timeline_icon_night2.png">
+    <img id="night3" class="time trigger away" src="icon/middle_timeline_icon_night3.png">
+    <img id="night4" class="time trigger away" src="icon/middle_timeline_icon_night4.png">
 
-    <div class="wrapper">
+    <!--中间地图时间轴上的进度条
+        wrapper 的作用是控制可显示区域，使得超出部分隐藏
+        考虑到循环显示，需要两条进度条进行配合-->
+    <div class="wrapper away">
         <div class="load trigger"></div>
         <div class="load trigger" style="animation-delay:40s"></div>
     </div>
     
+    <!--PowerBI 部分-->
     <iframe id="chart_A" src="https://app.powerbi.cn/view?r=eyJrIjoiMTdhZGMzN2QtYzU2Ni00NzMxLTljMjItZWQ5YTZiNWFmMzQxIiwidCI6IjUzMTM5OGYzLTA5ZDAtNDNmNS1iNGFiLTg5NGU4MmQ2MTA0NiJ9" width="1510" height="1000" frameborder="0" scrolling="no" seamless="seamless" style="position:absolute;top:134px;left:7176px"></iframe>
     <iframe id="chart_B" src="https://app.powerbi.cn/view?r=eyJrIjoiOTc5ZGNhYTUtNWVjNy00OTg2LTgzZGItNmJkNTFmYmMxMTUzIiwidCI6IjUzMTM5OGYzLTA5ZDAtNDNmNS1iNGFiLTg5NGU4MmQ2MTA0NiJ9" width="1510" height="1000" frameborder="0" scrolling="no" seamless="seamless" style="position:absolute;top:134px;left:7176px"></iframe>
+    
     <div id="chart_A_mask">
         <div style="position: absolute; width: 1510px; height: 30px; left: 7176px; top: 170px; background-color: #010e2a"></div>
         <div style="position: absolute; width: 1510px; height: 50px; left: 7176px; top: 1090px; background-color: #010e2a"></div>
     </div>
-
     <div id="chart_B_mask">
         <div style="position: absolute; width: 1510px; height: 30px; left: 7176px; top: 202px; background-color: #010e2a"></div>
         <div style="position: absolute; width: 1510px; height: 30px; left: 7176px; top: 610px; background-color: #010e2a"></div>
         <div style="position: absolute; width: 1510px; height: 50px; left: 7176px; top: 1090px; background-color: #010e2a"></div>
     </div>
-    
     <div id="chart_mask" style="position: absolute; width: 1510px; height: 1000px; top: 134px; left: 7176px; background-color: #010e2a"></div>
 
     <div class="button_on" id="button_A" style="left: 8338px; top: 120px">Course</div>
     <div class="button_off" id="button_B" style="left: 8490px; top: 120px">Behavior</div>
+
 
     <script type="text/javascript" src="js/map.js"></script>
     <script type="text/javascript" src="js/display.js"></script>
